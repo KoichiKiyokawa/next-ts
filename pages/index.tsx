@@ -1,6 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import Nav from '../components/nav'
+import Hoge from '../components/hoge'
 
 const Home = () => (
   <div>
@@ -33,6 +34,10 @@ const Home = () => (
           <h3>Examples &rarr;</h3>
           <p>Find other example boilerplates on the Next.js GitHub.</p>
         </a>
+      </div>
+
+      <div className="row">
+        <Hoge />
       </div>
     </div>
 

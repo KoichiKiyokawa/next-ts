@@ -1,12 +1,17 @@
 import React from 'react'
 import Link from 'next/link'
 
-const links = [
+type tLink = {
+  href: string
+  label: string
+  key?: string
+}
+const links: tLink[] = [
   { href: 'https://zeit.co/now', label: 'ZEIT' },
-  { href: 'https://github.com/zeit/next.js', label: 'GitHub' },
-].map(link => {
+  { href: 'https://github.com/zeit/next.js', label: 'GitHub' }
+]
+links.forEach(link => {
   link.key = `nav-link-${link.href}-${link.label}`
-  return link
 })
 
 const Nav = () => (
