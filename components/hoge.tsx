@@ -15,6 +15,10 @@ const Hoge = () => {
     }
   }
 
+  const reset = () => {
+    setCount(0)
+  }
+
   useEffect(() => {
     axios
       .get('https://api.fungenerators.com/identity/person/name', {
@@ -30,6 +34,7 @@ const Hoge = () => {
       <p>count: {count}</p>
       <button onClick={increment}>+</button>
       <button onClick={decrement}>-</button>
+      <button onClick={reset}>reset</button>
 
       <p>id: {id}</p>
     </div>
