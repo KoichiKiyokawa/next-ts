@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
-import Nav from '../components/nav'
-import Hoge from '../components/hoge'
+import Nav from '~/components/nav'
+import Hoge from '~/components/hoge'
 
 const Home = () => (
   <div>
