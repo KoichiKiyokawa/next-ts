@@ -1,10 +1,10 @@
 const path = require('path')
-// const webpack = require('webpack')
+const withCss = require('@zeit/next-css')
 
-module.exports = {
+module.exports = withCss({
   webpack(config) {
     config.resolve.alias['~'] = path.resolve(__dirname, './src')
     return config
   }
-}
+})
 

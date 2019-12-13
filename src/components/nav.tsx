@@ -1,61 +1,77 @@
 import React from 'react'
 import Link from 'next/link'
+import 'bulma/css/bulma.css'
 
-type tLink = {
-  href: string
-  label: string
-  key?: string
-}
-const links: tLink[] = [
-  { href: 'https://zeit.co/now', label: 'ZEIT' },
-  { href: 'https://github.com/zeit/next.js', label: 'GitHub' }
-]
-links.forEach(link => {
-  link.key = `nav-link-${link.href}-${link.label}`
-})
+const Nav: React.FC = () => {
+  const [active, setActive] = React.useState(false)
+  const toggleActive = () => {
+    setActive(prev=>!prev)
+  }
 
-const Nav = () => (
-  <nav>
-    <ul>
-      <li>
+  return (
+    <nav
+      className="navbar is-link"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div className="navbar-brand">
         <Link href="/">
-          <a>Home</a>
+          <a
+            className="is-size-3 has-text-light"
+            style={{ padding: '8px 24px' }}
+          >
+            Next-Practice
+          </a>
         </Link>
-      </li>
-      {links.map(({ key, href, label }) => (
-        <li key={key}>
-          <a href={href}>{label}</a>
-        </li>
-      ))}
-    </ul>
+        {/* レスポンシブ */}
+        <a
+          role="button"
+          className={`navbar-burger is-boxed ${active ? 'is-active' : ''}`}
+          data-target="navbarMenu"
+          aria-label="menu"
+          aria-expanded="false"
+          onClick={toggleActive}
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
 
-    <style jsx>{`
-      :global(body) {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-          Helvetica, sans-serif;
-      }
-      nav {
-        text-align: center;
-      }
-      ul {
-        display: flex;
-        justify-content: space-between;
-      }
-      nav > ul {
-        padding: 4px 16px;
-      }
-      li {
-        display: flex;
-        padding: 6px 8px;
-      }
-      a {
-        color: #067df7;
-        text-decoration: none;
-        font-size: 13px;
-      }
-    `}</style>
-  </nav>
-)
+      <div
+        id="navbarMenu"
+        className={`navbar-menu ${active ? 'is-active' : ''}`}
+      >
+        <div className="navbar-start">
+          <Link href="about">
+            <a className="navbar-item">About</a>
+          </Link>
 
+          <div className="navbar-item has-dropdown is-hoverable">
+            <a className="navbar-link">More</a>
+
+            <div className="navbar-dropdown">
+              <a className="navbar-item">About</a>
+              <a className="navbar-item">Jobs</a>
+              <a className="navbar-item">Contact</a>
+              <hr className="navbar-divider" />
+              <a className="navbar-item">Report an issue</a>
+            </div>
+          </div>
+        </div>
+
+        <div className="navbar-end">
+          <div className="navbar-item">
+            <div className="buttons">
+              <a className="button is-primary">
+                <strong>Sign up</strong>
+              </a>
+              <a className="button is-light">Log in</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  )
+}
 export default Nav
