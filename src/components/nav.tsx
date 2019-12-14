@@ -2,10 +2,12 @@ import React from 'react'
 import Link from 'next/link'
 import 'bulma/css/bulma.css'
 
+import { makeClass } from '~/utils/klass'
+
 const Nav: React.FC = () => {
   const [active, setActive] = React.useState(false)
   const toggleActive = () => {
-    setActive(prev=>!prev)
+    setActive(prev => !prev)
   }
 
   return (
@@ -26,7 +28,11 @@ const Nav: React.FC = () => {
         {/* レスポンシブ */}
         <a
           role="button"
-          className={`navbar-burger is-boxed ${active ? 'is-active' : ''}`}
+          {...makeClass({
+            'navbar-burger': true,
+            'is-boxed': true,
+            'is-active': active
+          })}
           data-target="navbarMenu"
           aria-label="menu"
           aria-expanded="false"
