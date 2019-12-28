@@ -1,12 +1,6 @@
 import React from 'react'
 
-// type Props = tTodo & {
-//   toggleDone: (id: number) => void
-// }
-type Props = {
-  id:number
-  text: string
-  done:boolean
+type Props = tTodo & {
   toggleDone: (id: number) => void
 }
 
