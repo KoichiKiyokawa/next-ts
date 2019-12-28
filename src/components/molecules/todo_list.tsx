@@ -18,7 +18,7 @@ const TodoList = () => {
     setInput('')
   }
 
-  const handleEnter = e => {
+  const handleEnter = (e:React.KeyboardEvent) => {
     if (e.key === 'Enter') handleAddTodo()
   }
 
