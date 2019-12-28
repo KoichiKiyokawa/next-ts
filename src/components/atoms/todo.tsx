@@ -5,16 +5,25 @@ type Props = tTodo & {
 }
 
 const Todo: React.FC<Props> = ({ id, text, done, toggleDone }) => (
-  <li key={id}>
-    <label className="checkbox">
-      <input
-        type="checkbox"
-        defaultChecked={done}
-        onChange={() => toggleDone(id)}
-      />
-      {text}
-    </label>
-  </li>
+  <>
+    <li>
+      <label className="checkbox">
+        <input
+          type="checkbox"
+          defaultChecked={done}
+          onChange={() => toggleDone(id)}
+        />
+        {text}
+      </label>
+    </li>
+    <style jsx>
+      {`
+        .checkbox input {
+          margin-right: 5px;
+        }
+      `}
+    </style>
+  </>
 )
 
 export default Todo

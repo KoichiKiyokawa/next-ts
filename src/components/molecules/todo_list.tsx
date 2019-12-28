@@ -53,14 +53,14 @@ const TodoList = () => {
       <ul>
         {undoneTodos().length === 0 && <p>There is no undone todos!</p>}
         {undoneTodos().map(todo => (
-          <Todo {...todo} toggleDone={toggleDone}/>
+          <Todo {...todo} toggleDone={toggleDone} key={todo.id} />
         ))}
       </ul>
       <p>Done Todos</p>
       <ul>
         {doneTodos().length === 0 && <p>There is no done todos!</p>}
         {doneTodos().map(todo => (
-          <Todo {...todo} toggleDone={toggleDone} />
+          <Todo {...todo} toggleDone={toggleDone} key={todo.id} />
         ))}
       </ul>
       <style jsx>
@@ -70,9 +70,6 @@ const TodoList = () => {
           }
           .one-line__content {
             margin-left: 10px;
-          }
-          .checkbox input {
-            margin-right: 5px;
           }
         `}
       </style>
