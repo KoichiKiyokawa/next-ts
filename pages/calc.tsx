@@ -4,8 +4,15 @@ import Monitor from '~/components/atoms/monitor'
 import Pad from '~/components/atoms/pad'
 import { range } from '~/utils/range'
 
+enum Operaions {
+  plus,
+  minus
+}
+
 const Calc = () => {
   const [memory, setMemory] = React.useState('0')
+
+  const [operation, setOperation] = React.useState<Operaions | null>(null)
 
   const init = () => {
     setMemory('0')
@@ -16,8 +23,8 @@ const Calc = () => {
       return
     }
 
-    if (num ===0){
-      if (memory === '0'){
+    if (num === 0) {
+      if (memory === '0') {
         return
       }
     }
@@ -58,7 +65,7 @@ const Calc = () => {
         <Pad num={'+'} />
       </div>
       <div>
-        <Pad num={0} isLong onClick={()=>handleMemory(0)}/>
+        <Pad num={0} isLong onClick={() => handleMemory(0)} />
         <Pad num={'.'} />
         <Pad num={'='} />
       </div>
