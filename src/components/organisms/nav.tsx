@@ -69,9 +69,11 @@ const Nav: React.FC = () => {
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
-              <a className="button is-primary">
-                <strong>Sign up</strong>
-              </a>
+              <Link href="signup">
+                <a className="button is-primary">
+                  <strong>Sign up</strong>
+                </a>
+              </Link>
               <a className="button is-light">Log in</a>
             </div>
           </div>
